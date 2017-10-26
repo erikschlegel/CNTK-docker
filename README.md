@@ -8,6 +8,7 @@ The following tags default to images based on ubuntu:14.04 (CPU), nvidia/cuda:8.
 **GPU ([NVIDIA Docker](https://github.com/nvidia/nvidia-docker) is required)**
 
 * `2.2-gpu-python3.5-cuda8.0-cudnn6.0`, `latest` ([/ubuntu-14.04/version_2/gpu/runtime/python-3/Dockerfile](https://github.com/Microsoft/CNTK-docker/blob/v2.2/ubuntu-14.04/version_2/gpu/runtime/python-3/Dockerfile))
+* `2.2-gpu-python3.4-cuda9.0-cudnn6.0` ([/ubuntu-16.04/version_2/gpu/runtime/python-3/Dockerfile](https://github.com/Microsoft/CNTK-docker/blob/v2.1/ubuntu-16.04/version_2/gpu/runtime/python-3/Dockerfile))
 * `2.1-gpu-python3.5-cuda8.0-cudnn6.0` ([/ubuntu-14.04/version_2/gpu/runtime/python-3/Dockerfile](https://github.com/Microsoft/CNTK-docker/blob/v2.1/ubuntu-14.04/version_2/gpu/runtime/python-3/Dockerfile))
 * `2.0-gpu-python3.5-cuda8.0-cudnn5.1` ([/ubuntu-14.04/version_2/gpu/runtime/python-3/Dockerfile](https://github.com/Microsoft/CNTK-docker/blob/v2.0/ubuntu-14.04/version_2/gpu/runtime/python-3/Dockerfile))
 * `2.0.rc3-gpu-python3.5-cuda8.0-cudnn5.1` ([/ubuntu-14.04/version_2/gpu/runtime/python-3/Dockerfile](https://github.com/Microsoft/CNTK-docker/blob/v2.0.rc3/ubuntu-14.04/version_2/gpu/runtime/python-3/Dockerfile))
