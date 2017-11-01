@@ -16,21 +16,21 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # Clean-up
     apt-get -y autoremove nvidia-375 nvidia-modprobe \
         && \
-    rm ./app/requirements.txt \
+  #  rm ./app/requirements.txt \
     rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update && apt-get install -y lsb-release sudo
 # Get CNTK Binary Distribution
-RUN CNTK_VERSION_DASHED=$(echo $CNTK_VERSION | tr . -) && \
-    CNTK_SHA256="81d2409c1b72e835f941de302d8ce0f21c59c637cf7ff23814ff97a1700e8ddb" && \
-    wget -q https://cntk.ai/BinaryDrop/CNTK-${CNTK_VERSION_DASHED}-Linux-64bit-GPU.tar.gz && \
-    echo "$CNTK_SHA256 CNTK-${CNTK_VERSION_DASHED}-Linux-64bit-GPU.tar.gz" | sha256sum --check --strict - && \
-    tar -xzf CNTK-${CNTK_VERSION_DASHED}-Linux-64bit-GPU.tar.gz && \
-    rm -f CNTK-${CNTK_VERSION_DASHED}-Linux-64bit-GPU.tar.gz && \
-    /bin/bash /cntk/Scripts/install/linux/install-cntk.sh --py-version 34 --docker
+#RUN CNTK_VERSION_DASHED=$(echo $CNTK_VERSION | tr . -)
+#    CNTK_SHA256="81d2409c1b72e835f941de302d8ce0f21c59c637cf7ff23814ff97a1700e8ddb" && \
+#    wget -q https://cntk.ai/BinaryDrop/CNTK-${CNTK_VERSION_DASHED}-Linux-64bit-GPU.tar.gz && \
+#    echo "$CNTK_SHA256 CNTK-${CNTK_VERSION_DASHED}-Linux-64bit-GPU.tar.gz" | sha256sum --check --strict - && \
+#    tar -xzf CNTK-${CNTK_VERSION_DASHED}-Linux-64bit-GPU.tar.gz && \
+#    rm -f CNTK-${CNTK_VERSION_DASHED}-Linux-64bit-GPU.tar.gz && \
+#    /bin/bash /cntk/Scripts/install/linux/install-cntk.sh --py-version 34 --docker
 
-ADD requirements.txt ./app/requirements.txt
-RUN apt-get install openmpi-bin nvidia-375 nvidia-modprobe nvidia-cuda-toolkit cuda && \
-    apt-get install libqt4-core libqt4-dev libqt4-gui qt4-dev-tools graphviz && \
-    pip install -r /app/requirements.txt
+ADD requirements.txt /app/requirements.txt
+RUN apt-get update && apt-get install -y nvidia-375 nvidia-modprobe nvidia-cuda-toolkit cuda
+RUN pip install -r /app/requirements.txt
 
 WORKDIR /root
